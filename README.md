@@ -1,4 +1,4 @@
-# FrozenAt V0.5
+# FrozenAt V0.6
 
 (This tool is for AmigaOS4.1)
 
