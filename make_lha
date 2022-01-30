@@ -1,0 +1,23 @@
+.key target_lha
+.bra {
+.ket }
+
+setenv lhafile=ram:FrozenAt.lha
+
+if exists ram:FrozenAt
+	delete ram:FrozenAt all
+endif
+
+if exists ram:FrozenAt.lha
+	delete ram:FrozenAt.lha
+endif
+
+makedir ram:FrozenAt
+copy FrozenAt ram:FrozenAt 
+copy README.md ram:FrozenAt 
+delete ram:FrozenAt/make_lha
+
+lha -er a $lhafile ram:FrozenAt >NIL:
+lha L $lhafile
+
+

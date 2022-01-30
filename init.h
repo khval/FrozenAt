@@ -1,0 +1,4 @@
+
+bool init();
+void shutdown();
+
