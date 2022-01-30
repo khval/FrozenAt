@@ -20,14 +20,17 @@ int32 printStack(struct Hook *hook, struct Task *task, struct StackFrameMsg *fra
 
 				if (symbol)
 				{
-					Printf("Stack %p -> Address: %p offset %p, SegmentNumber %ld, SegmentOffset %ld %s\n", 
+					Printf("Stack %p -> Address: %p, offset %p, SegmentNumber %p, SegmentOffset %p, Name: %s, BaseName: %s,FunctionName: %s\n", 
 							frame->StackPointer, 
 							frame->MemoryAddress,
 							symbol -> Offset,
 							symbol -> SegmentNumber,
 							symbol -> SegmentOffset	,
-							symbol -> Name ? symbol -> Name : "NULL"
-						);
+							symbol -> Name ? symbol -> Name : "NULL",
+							symbol -> SourceBaseName ? symbol -> SourceBaseName : "NULL" ,
+							symbol -> SourceFunctionName ? symbol -> SourceFunctionName : "NULL" );
+
+					ReleaseDebugSymbol(symbol);
 				}
 				else
 				{
