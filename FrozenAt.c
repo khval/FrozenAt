@@ -88,7 +88,13 @@ void _(char *name)
 
 int main(int args, char *arg[])
 {
-	if (! init() ) shutdown(); 
+	ULONG ret = 0;
+
+	if (! init() ) 
+	{
+		shutdown(); 
+		return 205;
+	}
 
 	if (args == 2) 
 	{
@@ -109,9 +115,10 @@ int main(int args, char *arg[])
 		Printf("https://khval/khval/FrozenAt\n");
 		Printf("MIT License\n\n");
 		Printf("Usage:\nFozenAt ProgramName\n\n");
+		ret = 120;
 	}
 
 	shutdown();
-	return 0;
+	return ret;
 }
 
